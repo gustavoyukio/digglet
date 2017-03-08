@@ -1,0 +1,35 @@
+<ion-view view-title="Mitsu App" class="home">
+<ion-content>
+
+	<h1>Dashboard Inicial</h1>
+
+	<div class="panes-section">
+		
+		<div class="panes">
+			<h3>Empresas Registradas</h3>
+			<span>{{companiesNumber}}</span>
+		</div>
+		<div class="panes">
+			<h3>Relatórios Registrados</h3>
+			<span>{{reportsNumber}}</span>
+		</div>
+
+	</div>
+
+	<h2>Opções de Relatórios</h2>
+	<div class="list card">
+	
+	  <a ng-href="#/app/relatorio/home" class="item item-icon-left">
+	    <i class="icon ion-ios-plus-outline"></i>
+	    Adicionar Relatório
+	  </a>
+	
+	  <a bg-href="#/report/review" class="item item-icon-left">
+	    <i class="icon ion-ios-paper-outline"></i>
+	    Rever Relatório
+	  </a>
+	
+	</div>
+
+</ion-content>
+</ion-view>

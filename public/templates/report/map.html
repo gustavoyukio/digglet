@@ -1,0 +1,41 @@
+<ion-view view-title="Relatório - Locais" class="mapa">
+<ion-content>
+
+	<div id="mapid"></div>
+	
+	<a ng-click="toggleRight()" class="hamburguer">
+		Regiões <i class="icon ion-chevron-right"></i>
+	</a>
+
+	<button class="button button-add-circle" ng-click="adicionarCircle()">
+		<i class="icon ion-plus"></i>
+	</button>
+	
+	<!--
+	<div class="row">
+		<div class="col">
+			<div class=row>
+				<div class="col">
+					Name:
+				</div>
+				<div class="col">
+						<input type="text" placeholder="Name" ng-model="name">
+				</div>
+				<div class="col">
+					
+				</div>
+			</div>
+			<div class=row>
+				<div class="col" style="width: 50%">
+					<ion-list>
+						<ion-radio ng-repeat="point in points" ng-value="point" ng-model="unitChoice" ng-click="selectUnit(point)" name="point">
+							Lat: {{point.getLatLng().lat}} Long: {{point.getLatLng().lng}}
+						</ion-radio>
+					</ion-list>
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+</ion-content>
+</ion-view>

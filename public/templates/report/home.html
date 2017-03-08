@@ -1,0 +1,37 @@
+<ion-view view-title="Adicionar Relatório" class="report start">
+<ion-content>
+
+	<h1>Adicionar Relatório</h1>
+	<h2>Passo 1: Escolher Empresa</h2>
+	
+	<form action="">
+		<div class="input-field col s12">
+
+			<select 
+				name="teste" 
+				id="empresa" 
+				class="browser-default"
+				ng-model="empresaSelecionada"
+				ng-change="settingCompany(empresaSelecionada)">
+				<option value="">Selecione a Empresa</option>
+				<option 
+					ng-repeat="option in companies" 
+					ng-hide="option.fantasia == undefined"
+					value="{{option.key}}">
+					{{option.fantasia}}
+				</option>
+			</select>
+			
+		</div>
+	</form>
+	
+	<button 
+		href="#/app/relatorio/adicionar" 
+		ng-show="showButton"
+		ng-click="reportStart()">
+		Adicionar Novo Relatório <i class="arrow ion-ios-arrow-forward"></i>
+	</button>
+
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,151 @@
+<ion-view view-title="Relatório - Locais - Detalhes" class="region">
+<ion-content>
+	
+	<h1 class="calm"> 
+		Dados da Região 
+		<small>{{dados.nome}}</small>
+	</h1>
+
+	<form action="#" class="region-info">
+
+    	<h2>Alterar informação</h2>
+
+    	<div class="">
+      		<label for="name">Nome da Região</label>
+    		<input type="text" id="name" name="name"/>
+    	</div>
+    	<div class="">
+    		<label for="estruturas">Tipo de Estruturas</label>
+    		<select name="estrutura" 
+    				class="browser-default"
+					ng-model="dados.estrtura"
+					ng-change="update()"
+					id="estruturas"
+					>
+				<option value="">Tipo de Estrutura</option>
+				<option value="Armazem">Armazens</option>
+				<option value="Silos">Silos</option>
+			</select>
+    	</div>
+    	<div class="">
+    		<label for="estruturas">Categoria</label>
+    		<select name="categoria"
+    				class="browser-default"
+					ng-model="dados.categoria"
+					ng-change="update()"
+					>
+				<option value="">Categoria</option>
+				<option value="subterraneio">Subterraneo</option>
+				<option value="aereo">Aereo</option>
+				<option value="aquatico">Aquatico</option>
+			</select>
+    	</div>
+
+    	<h3>Dados de Capacidade e Uso</h3>
+
+    	<div class="">
+    		
+			<input type="text" placeholder="Capacidade"
+				ng-model="dados.estrutura.capacidade"
+				ng-change="update();">
+			<input type="text" placeholder="Uso Atual"
+				ng-model="dados.estrutura.usoAtual"
+				ng-change="update();">
+			<input type="text" placeholder="Entrada/mês"
+				ng-model="dados.estrutura.entrada"
+				ng-change="update();">
+			<input type="date" 
+				placeholder="Data de instalação"
+				ng-model="dados.datas.instalacao"
+				ng-change="update();">
+    	</div>
+
+    	<h3>Itens de Segurança</h3>
+
+    	<ion-toggle class="produtos" 
+			ng-model="dados.seguranca.legislacao"
+			ng-change="update();">
+			Está Conforme a legislação?
+		</ion-toggle>
+		<ion-toggle class="produtos" 
+			ng-model="dados.seguranca.vazamento"
+			ng-change="update();">
+			Tem sinal de Vazamentos?
+		</ion-toggle>
+		<ion-toggle class="produtos" 
+			ng-model="dados.seguranca.seguro"
+			ng-change="update();">
+			Está em uma região segura?
+		</ion-toggle>
+		<ion-toggle class="produtos" 
+			ng-model="dados.seguranca.drenagem"
+			ng-change="update();">
+			Possui sistema de ddrenagem?
+		</ion-toggle>
+		<ion-toggle class="produtos" 
+			ng-model="dados.seguranca.acidentes"
+			ng-change="update();">
+			Existem acidentes associados?
+		</ion-toggle>
+    </form>
+
+
+	<div
+		ng-show="dados.conforme">
+		<ion-list>
+
+
+
+			<h2>Datas</h2>
+			<label class="item item-input">
+				<input type="date" placeholder="Data de instalação"
+					ng-model="dados.datas.instalacao"
+					ng-change="update();">
+			</label>
+
+			<h2 class="product">
+				Lista de Produtos
+				<i class="icon ion-plus-round" ng-click="showPopup();"></i>
+			</h2>
+			<ion-item ng-repeat="item in dados.produtos">
+				{{item.nome}}
+			</ion-item>
+
+			<h2 class="product">
+				Segurança
+			</h2>
+
+			<ion-toggle class="produtos" 
+				ng-model="dados.seguranca.vazamento"
+				ng-change="update();">
+				Tem sinal de Vazamentos?
+			</ion-toggle>
+			<ion-toggle class="produtos" 
+				ng-model="dados.seguranca.seguro"
+				ng-change="update();">
+				Está em uma região segura?
+			</ion-toggle>
+			<ion-toggle class="produtos" 
+				ng-model="dados.seguranca.drenagem"
+				ng-change="update();">
+				Possui sistema de ddrenagem?
+			</ion-toggle>
+			<ion-toggle class="produtos" 
+				ng-model="dados.seguranca.acidentes"
+				ng-change="update();">
+				Existem acidentes associados?
+			</ion-toggle>
+
+			<h2>mapa</h2>
+			<button class="button button-calm"
+				ng-click="getCurrentLocation()"
+			> 
+				Pegar Coordenadas Atuais
+			</button>
+
+		</ion-list>
+
+	</div>
+
+</ion-content>
+</ion-view>
